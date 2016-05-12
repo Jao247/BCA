@@ -6,6 +6,9 @@
     <!-- Custom screen margins -->
     <dimen name="a_m_v_margin">0dp</dimen>
     <dimen name="a_m_h_margin">0dp</dimen>
+    <dimen name="a_c_t_margin">0dp</dimen>
+    <dimen name="a_c_b_margin">16dp</dimen>
+    <dimen name="a_c_h_margin">8dp</dimen>
 
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>

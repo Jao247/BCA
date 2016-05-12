@@ -1,4 +1,4 @@
-package info.brocon.bca;
+package info.brocon.bca.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -9,20 +9,28 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import info.brocon.bca.activities.Committee;
+import java.util.ArrayList;
 
-public class Main extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
+import info.brocon.bca.Data;
+import info.brocon.bca.Main;
+import info.brocon.bca.R;
+import info.brocon.bca.objects.Member;
+
+public class Committee extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
 {
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_committee);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        updateListData();
 
         DrawerLayout          drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -31,6 +39,32 @@ public class Main extends AppCompatActivity implements NavigationView.OnNavigati
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    private void updateListData()
+    {
+        Data              data = new Data(this);
+        ArrayList<Member> mems = data.getCommittee();
+        /* Con Director(CD), Vice Director(VD), Secretary(SE)
+        *  Treasurer(TR), Staff Officer(SO), Public Relations(PR)
+        *  Advertising(APR), Panels Officer(PO), Health and Safety(HS)
+        *  Screenings(SCO), Card Games (CGO), Consoles (CO), RPG
+        */
+        int names[] = {R.id.CD_n, R.id.VD_n, R.id.SE_n, R.id.TR_n, R.id.SO_n, R.id.PR_n, R.id.APR_n, R.id.PO_n, R.id.HS_n, R.id.SCO_n, R.id.CGO_n, R.id.CO_n, R.id.RPG_n};
+        int jobs[] = {R.id.CD_j, R.id.VD_j, R.id.SE_j, R.id.TR_j, R.id.SO_j, R.id.PR_j, R.id.APR_j, R.id.PO_j, R.id.HS_j, R.id.SCO_j, R.id.CGO_j, R.id.CO_j, R.id.RPG_j};
+        int email[] = {R.id.CD_e, R.id.VD_e, R.id.SE_e, R.id.TR_e, R.id.SO_e, R.id.PR_e, R.id.APR_e, R.id.PO_e, R.id.HS_e, R.id.SCO_e, R.id.CGO_e, R.id.CO_e, R.id.RPG_e};
+
+        TextView tv;
+
+        for (int i = 0; i < mems.size(); i++)
+        {
+            tv = (TextView) findViewById(names[i]);
+            tv.setText("" + mems.get(i).getName());
+            tv =  (TextView) findViewById(jobs[i]);
+            tv.setText( "" + mems.get(i).getJob());
+            tv = (TextView) findViewById(email[i]);
+            tv.setText("" + mems.get(i).getEmail());
+        }
     }
 
     @Override
@@ -55,7 +89,8 @@ public class Main extends AppCompatActivity implements NavigationView.OnNavigati
 
         if (id == R.id.nav_home)
         {
-            Toast.makeText(this, R.string.on_home, Toast.LENGTH_LONG).show();
+            Intent i = new Intent(this, Main.class);
+            startActivity(i);
         } else if (id == R.id.nav_timetable)
         {
 
@@ -67,8 +102,7 @@ public class Main extends AppCompatActivity implements NavigationView.OnNavigati
 
         } else if (id == R.id.nav_committee)
         {
-            Intent i = new Intent(this, Committee.class);
-            startActivity(i);
+            Toast.makeText(this, R.string.on_com, Toast.LENGTH_LONG).show();
         } else if (id == R.id.nav_facebook)
         {
 
