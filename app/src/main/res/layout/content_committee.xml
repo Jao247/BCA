@@ -45,17 +45,15 @@
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceSmall"
             android:text="@string/com_msg"
-            android:id="@+id/intro_msg"
-            android:layout_gravity="center_horizontal"/>
+            android:textSize="18sp"
+            android:id="@+id/com_intro_msg"
+            android:gravity="center_horizontal"/>
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:id="@+id/imageView14"
-            android:src="@color/col_separator"
-            android:layout_row="16"
-            android:layout_column="0"
-            android:layout_columnSpan="2"/>
+            android:src="@color/col_separator"/>
 
         <ScrollView
             android:layout_width="match_parent"

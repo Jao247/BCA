@@ -11,5 +11,6 @@
 
     <!-- Text Colors -->
     <color name="textLight">#aaaaaa</color>
+    <color name="textMid">#777777</color>
     <color name="textDark">#444444</color>
 </resources>

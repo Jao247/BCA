@@ -41,6 +41,7 @@ public class Committee extends AppCompatActivity implements NavigationView.OnNav
         navigationView.setNavigationItemSelectedListener(this);
     }
 
+    @SuppressWarnings("ALL")
     private void updateListData()
     {
         Data              data = new Data(this);
@@ -51,18 +52,22 @@ public class Committee extends AppCompatActivity implements NavigationView.OnNav
         *  Screenings(SCO), Card Games (CGO), Consoles (CO), RPG
         */
         int names[] = {R.id.CD_n, R.id.VD_n, R.id.SE_n, R.id.TR_n, R.id.SO_n, R.id.PR_n, R.id.APR_n, R.id.PO_n, R.id.HS_n, R.id.SCO_n, R.id.CGO_n, R.id.CO_n, R.id.RPG_n};
-        int jobs[] = {R.id.CD_j, R.id.VD_j, R.id.SE_j, R.id.TR_j, R.id.SO_j, R.id.PR_j, R.id.APR_j, R.id.PO_j, R.id.HS_j, R.id.SCO_j, R.id.CGO_j, R.id.CO_j, R.id.RPG_j};
+        int jobs[]  = {R.id.CD_j, R.id.VD_j, R.id.SE_j, R.id.TR_j, R.id.SO_j, R.id.PR_j, R.id.APR_j, R.id.PO_j, R.id.HS_j, R.id.SCO_j, R.id.CGO_j, R.id.CO_j, R.id.RPG_j};
         int email[] = {R.id.CD_e, R.id.VD_e, R.id.SE_e, R.id.TR_e, R.id.SO_e, R.id.PR_e, R.id.APR_e, R.id.PO_e, R.id.HS_e, R.id.SCO_e, R.id.CGO_e, R.id.CO_e, R.id.RPG_e};
 
-        TextView tv;
+        TextView tv = (TextView) findViewById(R.id.com_intro_msg);
+        tv.setTextColor(getResources().getColor(R.color.textDark));
 
         for (int i = 0; i < mems.size(); i++)
         {
             tv = (TextView) findViewById(names[i]);
+            tv.setTextColor(getResources().getColor(R.color.textDark));
             tv.setText("" + mems.get(i).getName());
-            tv =  (TextView) findViewById(jobs[i]);
-            tv.setText( "" + mems.get(i).getJob());
+            tv = (TextView) findViewById(jobs[i]);
+            tv.setTextColor(getResources().getColor(R.color.textMid));
+            tv.setText("" + mems.get(i).getJob());
             tv = (TextView) findViewById(email[i]);
+            tv.setTextColor(getResources().getColor(R.color.textLight));
             tv.setText("" + mems.get(i).getEmail());
         }
     }
@@ -105,7 +110,7 @@ public class Committee extends AppCompatActivity implements NavigationView.OnNav
             Toast.makeText(this, R.string.on_com, Toast.LENGTH_LONG).show();
         } else if (id == R.id.nav_facebook)
         {
-
+            startActivity(Main.newFacebookIntent(this.getPackageManager(), "https://www.facebook.com/UL-BroCon-210222299054314/"));
         } else if (id == R.id.nav_about)
         {
 

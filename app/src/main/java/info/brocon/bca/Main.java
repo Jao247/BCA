@@ -1,6 +1,9 @@
 package info.brocon.bca;
 
 import android.content.Intent;
+import android.content.pm.ApplicationInfo;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -71,7 +74,7 @@ public class Main extends AppCompatActivity implements NavigationView.OnNavigati
             startActivity(i);
         } else if (id == R.id.nav_facebook)
         {
-
+            startActivity(newFacebookIntent(this.getPackageManager(), "https://www.facebook.com/UL-BroCon-210222299054314/"));
         } else if (id == R.id.nav_about)
         {
 
@@ -80,5 +83,22 @@ public class Main extends AppCompatActivity implements NavigationView.OnNavigati
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    // Provided from StackOverflow's Jared Rummler (http://stackoverflow.com/users/1048340/jared-rummler)
+    public static Intent newFacebookIntent(PackageManager pm, String url)
+    {
+        Uri uri = Uri.parse(url);
+        try
+        {
+            ApplicationInfo applicationInfo = pm.getApplicationInfo("com.facebook.katana", 0);
+            if (applicationInfo.enabled)
+            {
+                uri = Uri.parse("fb://facewebmodal/f?href=" + url);
+            }
+        } catch (PackageManager.NameNotFoundException ignored)
+        {
+        }
+        return new Intent(Intent.ACTION_VIEW, uri);
     }
 }
