@@ -3,4 +3,13 @@
     <color name="colorPrimary">#24077B</color>
     <color name="colorPrimaryDark">#1a0559</color>
     <color name="colorAccent">#e5b169</color>
+
+    <!-- Colors -->
+    <color name="col_separator">#888888</color>
+    <color name="col_bg">#dddddd</color>
+    <color name="col_shad">#555555</color>
+
+    <!-- Text Colors -->
+    <color name="textLight">#aaaaaa</color>
+    <color name="textDark">#444444</color>
 </resources>
