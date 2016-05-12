@@ -7,32 +7,32 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/ic_placeholder"
-            android:title="Home"/>
+            android:title="@string/menu_home"/>
         <item
             android:id="@+id/nav_timetable"
             android:icon="@drawable/ic_placeholder"
-            android:title="Timetable"/>
-        <item
-            android:id="@+id/nav_blog"
-            android:icon="@drawable/ic_placeholder"
-            android:title="Blog"/>
+            android:title="@string/menu_timetable"/>
         <item
             android:id="@+id/nav_guests"
             android:icon="@drawable/ic_placeholder"
-            android:title="Guests"/>
+            android:title="@string/menu_guests"/>
+        <item
+            android:id="@+id/nav_blog"
+            android:icon="@drawable/ic_placeholder"
+            android:title="@string/menu_blog"/>
     </group>
 
     <group
-        android:id="@+id/menu_bot"
+        android:id="@+id/menu_mid"
         android:checkableBehavior="none">
         <item
             android:id="@+id/nav_committee"
             android:icon="@drawable/ic_placeholder"
-            android:title="Committee"/>
+            android:title="@string/menu_committee"/>
         <item
             android:id="@+id/nav_facebook"
             android:icon="@drawable/ic_facebook"
-            android:title="Facebook"/>
+            android:title="@string/menu_facebook"/>
     </group>
 
     <group
@@ -41,7 +41,7 @@
         <item
             android:id="@+id/nav_about"
             android:icon="@drawable/ic_placeholder"
-            android:title="About"/>
+            android:title="@string/menu_about"/>
     </group>
 
 </menu>

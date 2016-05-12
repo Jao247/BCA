@@ -1,8 +1,16 @@
 <resources>
+    <!-- Activity and app names -->
     <string name="app_name">BroCon Companion</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <string name="action_settings">Settings</string>
+    <!-- Names for menu items -->
+    <string name="menu_home">Home</string>
+    <string name="menu_timetable">Timetable</string>
+    <string name="menu_guests">Guests</string>
+    <string name="menu_blog">Blog</string>
+    <string name="menu_committee">Committee</string>
+    <string name="menu_facebook">Facebook</string>
+    <string name="menu_about">About</string>
 </resources>

@@ -20,7 +20,7 @@ public class Main extends AppCompatActivity implements NavigationView.OnNavigati
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout          drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
@@ -33,7 +33,7 @@ public class Main extends AppCompatActivity implements NavigationView.OnNavigati
     public void onBackPressed()
     {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        if ( drawer.isDrawerOpen(GravityCompat.START) )
+        if (drawer.isDrawerOpen(GravityCompat.START))
         {
             drawer.closeDrawer(GravityCompat.START);
         } else
@@ -49,22 +49,25 @@ public class Main extends AppCompatActivity implements NavigationView.OnNavigati
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if ( id == R.id.nav_camera )
+        if (id == R.id.nav_home)
         {
 
-        } else if ( id == R.id.nav_gallery )
+        } else if (id == R.id.nav_timetable)
         {
 
-        } else if ( id == R.id.nav_slideshow )
+        } else if (id == R.id.nav_guests)
         {
 
-        } else if ( id == R.id.nav_manage )
+        } else if (id == R.id.nav_blog)
         {
 
-        } else if ( id == R.id.nav_share )
+        } else if (id == R.id.nav_committee)
         {
 
-        } else if ( id == R.id.nav_send )
+        } else if (id == R.id.nav_facebook)
+        {
+
+        } else if (id == R.id.nav_about)
         {
 
         }
