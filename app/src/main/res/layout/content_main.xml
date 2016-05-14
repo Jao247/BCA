@@ -35,6 +35,14 @@
         android:layout_height="match_parent"
         android:background="@color/col_bg"
         android:layout_gravity="center_horizontal">
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Timetable"
+            android:id="@+id/button"
+            android:layout_gravity="center_horizontal"
+            android:onClick="goTimetable"/>
     </LinearLayout>
 
 </LinearLayout>

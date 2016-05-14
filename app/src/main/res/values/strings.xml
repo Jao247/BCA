@@ -12,6 +12,13 @@
     <string name="on_home">You are already on the Home page</string>
     <string name="on_com">You are already on the Committee page</string>
 
+    <!-- Small String messages -->
+    <string name="nav_header_title">BroCon Companion App</string>
+    <string name="nav_header_email">public_relations@ulbrocon.com</string>
+
+    <!-- Image Descriptions -->
+    <string name="desc_header">BroCon Font style</string>
+
     <!-- Names for menu items -->
     <string name="menu_home">Home</string>
     <string name="menu_timetable">Timetable</string>
