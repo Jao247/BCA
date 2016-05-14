@@ -13,7 +13,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.Calendar;
+import java.util.Date;
 
 import info.brocon.bca.activities.Committee;
 
@@ -41,7 +45,38 @@ public class Main extends AppCompatActivity implements NavigationView.OnNavigati
 
     public void startTimer()
     {
+        final int SECONDS_IN_A_DAY = 24 * 60 * 60;
+        Calendar thatDay = Calendar.getInstance();
+        thatDay.setTime(new Date(0));
+        thatDay.set(Calendar.DAY_OF_MONTH,8);
+        thatDay.set(Calendar.MONTH,6);
+        thatDay.set(Calendar.YEAR, 2016);
 
+        Calendar today = Calendar.getInstance();
+        long diff =  thatDay.getTimeInMillis() - today.getTimeInMillis();
+        long diffSec = diff / 1000;
+
+        long weeks = diffSec / (SECONDS_IN_A_DAY * 7);
+        long days = (diffSec / SECONDS_IN_A_DAY) / 7;
+        long secondsDay = diffSec % SECONDS_IN_A_DAY;
+        long seconds = secondsDay % 60;
+        long minutes = (secondsDay / 60) % 60;
+        long hours = (secondsDay / 3600);
+
+        TextView tv = (TextView)  findViewById(R.id.timerW);
+        if (weeks % 10 < 10) tv.setText("0" + weeks);
+        else tv.setText("" + weeks);
+        tv = (TextView) findViewById(R.id.timerD);
+        tv.setText("0" + days);
+        tv = (TextView) findViewById(R.id.timerH);
+        if (hours % 10 < 10) tv.setText("0" + hours);
+        else tv.setText("" + hours);
+        tv = (TextView) findViewById(R.id.timerM);
+        if (minutes % 10 < 10) tv.setText("0" + minutes);
+        else tv.setText("" + minutes);
+        tv = (TextView) findViewById(R.id.timerS);
+        if (seconds % 10 < 10) tv.setText("0" + seconds);
+        else tv.setText("" + seconds);
     }
 
     @Override
