@@ -32,6 +32,36 @@ public class Main extends AppCompatActivity implements NavigationView.OnNavigati
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        startTimer();
+        Thread t = new Thread()
+        {
+
+            @Override
+            public void run()
+            {
+                try
+                {
+                    while (!isInterrupted())
+                    {
+                        Thread.sleep(1000);
+                        runOnUiThread(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                startTimer();
+                            }
+                        });
+                    }
+                } catch (InterruptedException e)
+                {
+                    e.printStackTrace();
+                }
+            }
+        };
+
+        t.start();
+
         DrawerLayout          drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
@@ -39,44 +69,61 @@ public class Main extends AppCompatActivity implements NavigationView.OnNavigati
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-        startTimer();
     }
 
     public void startTimer()
     {
-        final int SECONDS_IN_A_DAY = 24 * 60 * 60;
         Calendar thatDay = Calendar.getInstance();
         thatDay.setTime(new Date(0));
-        thatDay.set(Calendar.DAY_OF_MONTH,8);
-        thatDay.set(Calendar.MONTH,6);
+        thatDay.set(Calendar.DAY_OF_MONTH, 8);
+        thatDay.set(Calendar.MONTH, Calendar.JULY);
         thatDay.set(Calendar.YEAR, 2016);
+        thatDay.set(Calendar.HOUR_OF_DAY, 0);
+        thatDay.set(Calendar.MINUTE, 0);
+        thatDay.set(Calendar.SECOND, 0);
 
         Calendar today = Calendar.getInstance();
-        long diff =  thatDay.getTimeInMillis() - today.getTimeInMillis();
-        long diffSec = diff / 1000;
+        long     diff  = thatDay.getTimeInMillis() - today.getTimeInMillis();
+        long     thing = diff / 1000;
 
-        long weeks = diffSec / (SECONDS_IN_A_DAY * 7);
-        long days = (diffSec / SECONDS_IN_A_DAY) / 7;
-        long secondsDay = diffSec % SECONDS_IN_A_DAY;
-        long seconds = secondsDay % 60;
-        long minutes = (secondsDay / 60) % 60;
-        long hours = (secondsDay / 3600);
+        long w = thing / (24 * 60 * 60 * 7);
+        thing %= (24 * 60 * 60 * 7);
+        long d = thing / (24 * 60 * 60);
+        thing %= (24 * 60 * 60);
+        long h = thing / (60 * 60);
+        thing %= (60 * 60);
+        long m = thing / 60;
+        long s = thing % 60;
 
-        TextView tv = (TextView)  findViewById(R.id.timerW);
-        if (weeks % 10 < 10) tv.setText("0" + weeks);
-        else tv.setText("" + weeks);
-        tv = (TextView) findViewById(R.id.timerD);
-        tv.setText("0" + days);
-        tv = (TextView) findViewById(R.id.timerH);
-        if (hours % 10 < 10) tv.setText("0" + hours);
-        else tv.setText("" + hours);
-        tv = (TextView) findViewById(R.id.timerM);
-        if (minutes % 10 < 10) tv.setText("0" + minutes);
-        else tv.setText("" + minutes);
-        tv = (TextView) findViewById(R.id.timerS);
-        if (seconds % 10 < 10) tv.setText("0" + seconds);
-        else tv.setText("" + seconds);
+        //String thisW = "w:" + w + ",d:" + d + ",h:" + h + ",m:" + m + ",s:" + s;
+        //Toast.makeText(this, thisW, Toast.LENGTH_SHORT).show();
+
+        TextView tv;
+        if (w >= 10)
+        {
+            tv = (TextView) findViewById(R.id.timerWL);
+            tv.setText("" + (w / 10));
+            tv = (TextView) findViewById(R.id.timerWR);
+            tv.setText("" + (w % 10));
+        } else
+        {
+            tv = (TextView) findViewById(R.id.timerWR);
+            tv.setText("" + w);
+        }
+        tv = (TextView) findViewById(R.id.timerDR);
+        tv.setText("" + d);
+        tv = (TextView) findViewById(R.id.timerHL);
+        tv.setText("" + (h / 10));
+        tv = (TextView) findViewById(R.id.timerHR);
+        tv.setText("" + (h % 10));
+        tv = (TextView) findViewById(R.id.timerML);
+        tv.setText("" + (m / 10));
+        tv = (TextView) findViewById(R.id.timerMR);
+        tv.setText("" + (m % 10));
+        tv = (TextView) findViewById(R.id.timerSL);
+        tv.setText("" + (s / 10));
+        tv = (TextView) findViewById(R.id.timerSR);
+        tv.setText("" + (s % 10));
     }
 
     @Override

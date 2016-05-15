@@ -50,20 +50,35 @@
                 android:layout_height="match_parent"
                 android:background="@color/numbers">
 
-                <TextView
+                <LinearLayout
+                    android:orientation="horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="00"
-                    android:id="@+id/timerW"
-                    android:layout_gravity="center_horizontal"
-                    android:textSize="40sp"/>
+                    android:layout_gravity="center_horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="@string/timer_0"
+                        android:id="@+id/timerWL"
+                        android:layout_gravity="center_horizontal"
+                        android:textSize="40sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="@string/timer_0"
+                        android:id="@+id/timerWR"
+                        android:textSize="40sp"/>
+                </LinearLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Weeks"
+                    android:text="@string/timer_w"
                     android:id="@+id/textW"
                     android:layout_gravity="center"
                     android:textSize="15sp"/>
@@ -73,7 +88,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text=" "
+                android:text="@string/timer_blank"
                 android:id="@+id/textView6"/>
 
             <LinearLayout
@@ -82,20 +97,35 @@
                 android:layout_height="match_parent"
                 android:background="@color/numbers">
 
-                <TextView
+                <LinearLayout
+                    android:orientation="horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="00"
-                    android:id="@+id/timerD"
-                    android:textSize="40sp"
-                    android:layout_gravity="center_horizontal"/>
+                    android:layout_gravity="center_horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="@string/timer_0"
+                        android:id="@+id/timerDL"
+                        android:layout_gravity="center_horizontal"
+                        android:textSize="40sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="@string/timer_0"
+                        android:id="@+id/timerDR"
+                        android:textSize="40sp"/>
+                </LinearLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Days"
+                    android:text="@string/timer_d"
                     android:id="@+id/textD"
                     android:textSize="15sp"
                     android:layout_gravity="center"/>
@@ -105,7 +135,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text=" "
+                android:text="@string/timer_blank"
                 android:id="@+id/textView9"/>
 
             <LinearLayout
@@ -114,20 +144,35 @@
                 android:layout_height="match_parent"
                 android:background="@color/numbers">
 
-                <TextView
+                <LinearLayout
+                    android:orientation="horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="00"
-                    android:id="@+id/timerH"
-                    android:textSize="40sp"
-                    android:layout_gravity="center_horizontal"/>
+                    android:layout_gravity="center_horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="@string/timer_0"
+                        android:id="@+id/timerHL"
+                        android:layout_gravity="center_horizontal"
+                        android:textSize="40sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="@string/timer_0"
+                        android:id="@+id/timerHR"
+                        android:textSize="40sp"/>
+                </LinearLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Hours"
+                    android:text="@string/timer_h"
                     android:id="@+id/textH"
                     android:textSize="15sp"
                     android:layout_gravity="center"/>
@@ -137,7 +182,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text=" "
+                android:text="@string/timer_blank"
                 android:id="@+id/textView3"/>
 
             <LinearLayout
@@ -146,20 +191,35 @@
                 android:layout_height="match_parent"
                 android:background="@color/numbers">
 
-                <TextView
+                <LinearLayout
+                    android:orientation="horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="00"
-                    android:id="@+id/timerM"
-                    android:textSize="40sp"
-                    android:layout_gravity="center_horizontal"/>
+                    android:layout_gravity="center_horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="@string/timer_0"
+                        android:id="@+id/timerML"
+                        android:layout_gravity="center_horizontal"
+                        android:textSize="40sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="@string/timer_0"
+                        android:id="@+id/timerMR"
+                        android:textSize="40sp"/>
+                </LinearLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Minutes"
+                    android:text="@string/timer_m"
                     android:id="@+id/textM"
                     android:textSize="15sp"
                     android:layout_gravity="center"/>
@@ -169,7 +229,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceSmall"
-                android:text=" "
+                android:text="@string/timer_blank"
                 android:id="@+id/textView8"/>
 
             <LinearLayout
@@ -178,20 +238,35 @@
                 android:layout_height="match_parent"
                 android:background="@color/numbers">
 
-                <TextView
+                <LinearLayout
+                    android:orientation="horizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="00"
-                    android:id="@+id/timerS"
-                    android:textSize="40sp"
-                    android:layout_gravity="center_horizontal"/>
+                    android:layout_gravity="center_horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="@string/timer_0"
+                        android:id="@+id/timerSL"
+                        android:layout_gravity="center_horizontal"
+                        android:textSize="40sp"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textAppearance="?android:attr/textAppearanceLarge"
+                        android:text="@string/timer_0"
+                        android:id="@+id/timerSR"
+                        android:textSize="40sp"/>
+                </LinearLayout>
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textAppearance="?android:attr/textAppearanceLarge"
-                    android:text="Seconds"
+                    android:text="@string/timer_s"
                     android:id="@+id/textS"
                     android:textSize="15sp"
                     android:layout_gravity="center"/>
