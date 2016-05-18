@@ -27,7 +27,6 @@
     <string name="timer_m">Minutes</string>
     <string name="timer_s">Seconds</string>
     <string name="timer_0">0</string>
-    <string name="timer_blank"> </string>
 
     <!-- Names for menu items -->
     <string name="menu_home">Home</string>

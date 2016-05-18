@@ -24,9 +24,9 @@ public class Data
         ArrayList<TimetableItem> data = new ArrayList<>();
         BufferedReader reader = null;
         try {
-            reader = new BufferedReader(new InputStreamReader(con.getAssets().open("Committee.csv")));
+            reader = new BufferedReader(new InputStreamReader(con.getAssets().open("Timetable.csv")));
             String mLine, temp[];
-            // s name, s job(s), s email
+            // s day, s time, s name, s location, b marked
             while ((mLine = reader.readLine()) != null)
             {
                 temp = mLine.split(",");

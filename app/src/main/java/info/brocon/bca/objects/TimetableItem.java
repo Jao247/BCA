@@ -6,7 +6,7 @@ public class TimetableItem
     private String day, name, time, loc;
     private boolean marked;
 
-    public TimetableItem(String day, String name, String time, String loc, boolean marked)
+    public TimetableItem(String day, String time, String name, String loc, boolean marked)
     {
         this.day    =    day;
         this.name   =   name;
