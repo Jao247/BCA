@@ -27,6 +27,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="info.brocon.bca.Main"/>
         </activity>
+        <activity
+            android:name=".activities.Blank"
+            android:label="@string/title_activity_blank"
+            android:parentActivityName=".Main"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="info.brocon.bca.Main"/>
+        </activity>
     </application>
 
 </manifest>

@@ -19,6 +19,7 @@ import android.widget.Toast;
 import java.util.Calendar;
 import java.util.Date;
 
+import info.brocon.bca.activities.Blank;
 import info.brocon.bca.activities.Committee;
 
 public class Main extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
@@ -157,7 +158,8 @@ public class Main extends AppCompatActivity implements NavigationView.OnNavigati
 
         } else if (id == R.id.nav_blog)
         {
-
+            Intent i = new Intent(this, Blank.class);
+            startActivity(i);
         } else if (id == R.id.nav_committee)
         {
             Intent i = new Intent(this, Committee.class);
@@ -175,11 +177,6 @@ public class Main extends AppCompatActivity implements NavigationView.OnNavigati
         return true;
     }
 
-    public void goTimetable(View view)
-    {
-
-    }
-
     // Provided from StackOverflow's Jared Rummler (http://stackoverflow.com/users/1048340/jared-rummler)
     public static Intent newFacebookIntent(PackageManager pm, String url)
     {
@@ -195,5 +192,10 @@ public class Main extends AppCompatActivity implements NavigationView.OnNavigati
         {
         }
         return new Intent(Intent.ACTION_VIEW, uri);
+    }
+
+    public void goTimetable(View view)
+    {
+
     }
 }
