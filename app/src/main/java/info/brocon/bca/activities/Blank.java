@@ -9,15 +9,9 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.widget.ListView;
 
-import java.util.ArrayList;
-
-import info.brocon.bca.Data;
 import info.brocon.bca.Main;
 import info.brocon.bca.R;
-import info.brocon.bca.adapters.CommitteeAdapter;
-import info.brocon.bca.objects.Member;
 
 public class Blank extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
 {
@@ -29,29 +23,6 @@ public class Blank extends AppCompatActivity implements NavigationView.OnNavigat
         setContentView(R.layout.activity_blank);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        try
-        {
-            ListView lv = (ListView) findViewById(R.id.blankList);
-
-            Data d = new Data(this);
-            ArrayList<Member> comm = d.getCommittee();
-
-            String names[] = new String[comm.size()], emails[] = new String[comm.size()], jobs[] = new String[comm.size()];
-
-            for (int i = 0; i < comm.size(); i++)
-            {
-                names[i] = comm.get(i).getName();
-                emails[i] = comm.get(i).getEmail();
-                jobs[i] = comm.get(i).getJob();
-            }
-
-            CommitteeAdapter ca = new CommitteeAdapter(this, names, emails, jobs);
-            lv.setAdapter(ca);
-        }catch(NullPointerException e)
-        {
-            e.printStackTrace();
-        }
 
         DrawerLayout          drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);

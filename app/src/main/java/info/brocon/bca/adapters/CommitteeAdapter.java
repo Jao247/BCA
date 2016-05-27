@@ -44,12 +44,12 @@ public class CommitteeAdapter extends BaseAdapter
         }
 
         TextView name  = (TextView) v.findViewById(R.id.comm_n);
-        TextView email = (TextView) v.findViewById(R.id.comm_e);
+        TextView emailV = (TextView) v.findViewById(R.id.comm_e);
         TextView job   = (TextView) v.findViewById(R.id.comm_j);
 
         name.setText(names[pos]);
-        email.setText(names[pos]);
-        job.setText(names[pos]);
+        emailV.setText(email[pos]);
+        job.setText(jobs[pos]);
 
         return null;
     }
