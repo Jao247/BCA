@@ -11,29 +11,56 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import info.brocon.bca.Data;
 import info.brocon.bca.Main;
 import info.brocon.bca.R;
-import info.brocon.bca.adapters.CommAdapter;
+import info.brocon.bca.adapters.TTableAdapter;
 
-public class Committee extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
+public class Timetable extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
 {
+    private Data d = new Data(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_committee);
+        setContentView(R.layout.activity_timetable);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        updateListData();
+        ListAdapter la = new TTableAdapter(this, d.getTimetableItems());
+        ListView    lv = (ListView) findViewById(R.id.ttable_list);
+        lv.setAdapter(la);
+        Thread t = new Thread()
+        {
 
-        TextView tv = (TextView) findViewById(R.id.comm_intro_msg);
-        tv.setTextColor(getResources().getColor(R.color.textDark));
+            @Override
+            public void run()
+            {
+                try
+                {
+                    while (!isInterrupted())
+                    {
+                        Thread.sleep(1000);
+                        runOnUiThread(new Runnable()
+                        {
+                            @Override
+                            public void run()
+                            {
+                                d.updateTimetable();
+                            }
+                        });
+                    }
+                } catch (InterruptedException e)
+                {
+                    e.printStackTrace();
+                }
+            }
+        };
+
+        t.start();
 
         DrawerLayout          drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -42,15 +69,6 @@ public class Committee extends AppCompatActivity implements NavigationView.OnNav
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-    }
-
-    @SuppressWarnings ("ALL")
-    private void updateListData()
-    {
-        Data        data = new Data(this);
-        ListAdapter la   = new CommAdapter(this, data.getCommittee());
-        ListView    lv   = (ListView) findViewById(R.id.comm_list);
-        lv.setAdapter(la);
     }
 
     @Override
@@ -79,8 +97,7 @@ public class Committee extends AppCompatActivity implements NavigationView.OnNav
             startActivity(i);
         } else if (id == R.id.nav_timetable)
         {
-            Intent i = new Intent(this, Timetable.class);
-            startActivity(i);
+            Toast.makeText(this, R.string.on_timetable, Toast.LENGTH_LONG).show();
         } else if (id == R.id.nav_guests)
         {
             Intent i = new Intent(this, Blank.class);
@@ -91,7 +108,8 @@ public class Committee extends AppCompatActivity implements NavigationView.OnNav
             startActivity(i);
         } else if (id == R.id.nav_committee)
         {
-            Toast.makeText(this, R.string.on_com, Toast.LENGTH_LONG).show();
+            Intent i = new Intent(this, Committee.class);
+            startActivity(i);
         } else if (id == R.id.nav_facebook)
         {
             startActivity(Main.newFacebookIntent(this.getPackageManager(), "https://www.facebook.com/UL-BroCon-210222299054314/"));
@@ -105,4 +123,5 @@ public class Committee extends AppCompatActivity implements NavigationView.OnNav
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }

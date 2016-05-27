@@ -50,6 +50,11 @@ public class Data
         return data;
     }
 
+    public void updateTimetable()
+    {
+
+    }
+
     public ArrayList<Member> getCommittee()
     {
         ArrayList<Member> mems = new ArrayList<>();

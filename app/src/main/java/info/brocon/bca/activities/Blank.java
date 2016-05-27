@@ -59,7 +59,8 @@ public class Blank extends AppCompatActivity implements NavigationView.OnNavigat
             startActivity(i);
         } else if (id == R.id.nav_timetable)
         {
-
+            Intent i = new Intent(this, Timetable.class);
+            startActivity(i);
         } else if (id == R.id.nav_guests)
         {
 

@@ -12,6 +12,7 @@
     <!-- Toast Messages -->
     <string name="on_home">You are already on the Home page</string>
     <string name="on_com">You are already on the Committee page</string>
+    <string name="on_timetable">You are already on the Timetable page</string>
 
     <!-- Small String messages -->
     <string name="nav_header_title">BroCon Companion App</string>
@@ -37,4 +38,5 @@
     <string name="menu_facebook">Facebook</string>
     <string name="menu_about">About</string>
     <string name="title_activity_blank">blank</string>
+    <string name="title_activity_timetable">Timetable</string>
 </resources>

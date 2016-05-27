@@ -36,6 +36,11 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="info.brocon.bca.Main"/>
         </activity>
+        <activity
+            android:name=".activities.Timetable"
+            android:label="@string/title_activity_timetable"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
     </application>
 
 </manifest>

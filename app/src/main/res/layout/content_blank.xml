@@ -34,6 +34,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center_horizontal"
+        android:paddingTop="@dimen/a_c_t_margin"
+        android:paddingBottom="@dimen/a_c_b_margin"
+        android:paddingLeft="@dimen/a_c_h_margin"
+        android:paddingRight="@dimen/a_c_h_margin"
         android:background="@color/col_bg">
 
     </LinearLayout>

@@ -21,6 +21,7 @@ import java.util.Date;
 
 import info.brocon.bca.activities.Blank;
 import info.brocon.bca.activities.Committee;
+import info.brocon.bca.activities.Timetable;
 
 public class Main extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
 {
@@ -152,10 +153,12 @@ public class Main extends AppCompatActivity implements NavigationView.OnNavigati
             Toast.makeText(this, R.string.on_home, Toast.LENGTH_LONG).show();
         } else if (id == R.id.nav_timetable)
         {
-
+            Intent i = new Intent(this, Timetable.class);
+            startActivity(i);
         } else if (id == R.id.nav_guests)
         {
-
+            Intent i = new Intent(this, Blank.class);
+            startActivity(i);
         } else if (id == R.id.nav_blog)
         {
             Intent i = new Intent(this, Blank.class);
@@ -169,7 +172,8 @@ public class Main extends AppCompatActivity implements NavigationView.OnNavigati
             startActivity(newFacebookIntent(this.getPackageManager(), "https://www.facebook.com/UL-BroCon-210222299054314/"));
         } else if (id == R.id.nav_about)
         {
-
+            Intent i = new Intent(this, Blank.class);
+            startActivity(i);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -196,6 +200,7 @@ public class Main extends AppCompatActivity implements NavigationView.OnNavigati
 
     public void goTimetable(View view)
     {
-
+        Intent i = new Intent(this, Timetable.class);
+        startActivity(i);
     }
 }
