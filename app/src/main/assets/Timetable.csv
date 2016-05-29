@@ -1,8 +1,8 @@
-day,time,test1,pess,FALSE
-day,time,test2,pess,FALSE
-day,time,test3,pess,FALSE
-day,time,test4,pess,TRUE
-day,time,test5,pess,FALSE
-day,time,test6,pess,FALSE
-day,time,test7,pess,FALSE
-day,time,test8,pess,FALSE
+test1,pess,0,600,15
+test2,pess,1,630,60
+test3,pess,1,915,180
+test4,pess,0,975,20
+test5,pess,0,1080,30
+test6,pess,2,750,50
+test7,pess,2,950,10
+test8,pess,1,1130,15

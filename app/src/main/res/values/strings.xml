@@ -1,7 +1,9 @@
 <resources>
     <!-- Activity and app names -->
     <string name="app_name">BroCon Companion</string>
+    <string name="title_activity_blank">blank</string>
     <string name="title_activity_committee">Committee</string>
+    <string name="title_activity_timetable">Timetable</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -10,33 +12,32 @@
     <string name="com_msg">Welcome to the Committee page, below this message is a list of the committee members, along with their position and their contact email.</string>
 
     <!-- Toast Messages -->
-    <string name="on_home">You are already on the Home page</string>
     <string name="on_com">You are already on the Committee page</string>
+    <string name="on_home">You are already on the Home page</string>
     <string name="on_timetable">You are already on the Timetable page</string>
 
     <!-- Small String messages -->
-    <string name="nav_header_title">BroCon Companion App</string>
     <string name="nav_header_email">public_relations@ulbrocon.com</string>
+    <string name="nav_header_title">BroCon Companion App</string>
 
     <!-- Image Descriptions -->
     <string name="desc_header">BroCon Font style</string>
 
     <!-- Strings for timers -->
-    <string name="timer_w">Weeks</string>
     <string name="timer_d">Days</string>
     <string name="timer_h">Hours</string>
     <string name="timer_m">Minutes</string>
     <string name="timer_s">Seconds</string>
+    <string name="timer_w">Weeks</string>
     <string name="timer_0">0</string>
 
     <!-- Names for menu items -->
-    <string name="menu_home">Home</string>
-    <string name="menu_timetable">Timetable</string>
-    <string name="menu_guests">Guests</string>
+    <string name="menu_about">About</string>
     <string name="menu_blog">Blog</string>
     <string name="menu_committee">Committee</string>
     <string name="menu_facebook">Facebook</string>
-    <string name="menu_about">About</string>
-    <string name="title_activity_blank">blank</string>
-    <string name="title_activity_timetable">Timetable</string>
+    <string name="menu_guests">Guests</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_map">Map</string>
+    <string name="menu_timetable">Timetable</string>
 </resources>

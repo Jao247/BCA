@@ -14,34 +14,46 @@ public class Data
 {
     private Context con;
 
-    public Data (Context con)
+    public Data(Context con)
     {
         this.con = con;
     }
 
     public ArrayList<TimetableItem> getTimetableItems()
     {
-        ArrayList<TimetableItem> data = new ArrayList<>();
-        BufferedReader reader = null;
-        try {
+        ArrayList<TimetableItem> data   = new ArrayList<>();
+        BufferedReader           reader = null;
+        try
+        {
             reader = new BufferedReader(new InputStreamReader(con.getAssets().open("Timetable.csv")));
             String mLine, temp[];
-            // s day, s time, s name, s location, b marked
+            int nums[] = new int[3];
+            // s name, s location, i day, i time, i length
             while ((mLine = reader.readLine()) != null)
             {
                 temp = mLine.split(",");
-                data.add(new TimetableItem(temp[0],temp[1],temp[2],temp[3], Boolean.parseBoolean(temp[4])));
+                try
+                {
+                    nums[0] = Integer.parseInt(temp[2]);
+                    nums[1] = Integer.parseInt(temp[3]);
+                    nums[2] = Integer.parseInt(temp[4]);
+                } catch (Exception e)
+                {
+                    e.printStackTrace();
+                }
+                data.add(new TimetableItem(temp[0], temp[1], nums[0], nums[1], nums[2]));
             }
-        }catch (Exception e)
+        } catch (Exception e)
         {
             e.printStackTrace();
-        }finally
+        } finally
         {
             if (reader != null)
             {
-                try {
+                try
+                {
                     reader.close();
-                }catch (IOException e)
+                } catch (IOException e)
                 {
                     e.printStackTrace();
                 }
@@ -50,16 +62,12 @@ public class Data
         return data;
     }
 
-    public void updateTimetable()
-    {
-
-    }
-
     public ArrayList<Member> getCommittee()
     {
-        ArrayList<Member> mems = new ArrayList<>();
-        BufferedReader reader = null;
-        try {
+        ArrayList<Member> mems   = new ArrayList<>();
+        BufferedReader    reader = null;
+        try
+        {
             reader = new BufferedReader(new InputStreamReader(con.getAssets().open("Committee.csv")));
             String mLine, temp[];
             // s name, s job(s), s email
@@ -68,16 +76,17 @@ public class Data
                 temp = mLine.split(",");
                 mems.add(new Member(temp[0], temp[1], temp[2]));
             }
-        }catch (Exception e)
+        } catch (Exception e)
         {
             e.printStackTrace();
-        }finally
+        } finally
         {
             if (reader != null)
             {
-                try {
+                try
+                {
                     reader.close();
-                }catch (IOException e)
+                } catch (IOException e)
                 {
                     e.printStackTrace();
                 }

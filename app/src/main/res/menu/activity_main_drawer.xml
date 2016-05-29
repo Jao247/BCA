@@ -13,6 +13,10 @@
             android:icon="@drawable/ic_placeholder"
             android:title="@string/menu_timetable"/>
         <item
+            android:id="@+id/nav_map"
+            android:icon="@drawable/ic_placeholder"
+            android:title="@string/menu_map"/>
+        <item
             android:id="@+id/nav_guests"
             android:icon="@drawable/ic_placeholder"
             android:title="@string/menu_guests"/>
