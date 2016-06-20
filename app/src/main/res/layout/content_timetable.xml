@@ -40,6 +40,27 @@
         android:paddingRight="@dimen/a_c_h_margin"
         android:background="@color/col_bg">
 
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/searchField"
+                android:layout_gravity="center_horizontal"
+                android:text="Search"/>
+
+            <Button
+                style="?android:attr/buttonStyleSmall"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:text="Search"
+                android:id="@+id/searchButton"
+                android:textAlignment="center"/>
+        </LinearLayout>
+
         <ListView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

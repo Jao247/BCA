@@ -115,7 +115,7 @@ public class Timetable extends AppCompatActivity implements NavigationView.OnNav
         }
 
         long startTime = cal.getTimeInMillis() + (list.get(pos).getTime() * 60 * 1000);
-        long endTime = startTime + (list.get(pos).getLength() * 60 * 1000);
+        long endTime = startTime + (list.get(pos).getTime() * 60 * 1000);
 
         Intent i = new Intent(Intent.ACTION_EDIT);
         i.setType("vnd.android.cursor.item/event");

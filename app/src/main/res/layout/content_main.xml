@@ -15,10 +15,24 @@
     android:orientation="vertical">
 
     <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/home_header">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="350dp"
+            android:id="@+id/ivHomeHeader"
+            android:layout_gravity="center_horizontal"/>
+    </LinearLayout>
+
+    <LinearLayout
         android:orientation="horizontal"
         android:background="@color/colorAccent"
         android:layout_width="match_parent"
         android:layout_height="2dp">
+
     </LinearLayout>
 
     <FrameLayout
@@ -59,6 +73,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/textBlack"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="@string/timer_0"
                         android:id="@+id/timerWL"
@@ -68,6 +83,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/textBlack"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="@string/timer_0"
                         android:id="@+id/timerWR"
@@ -77,6 +93,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/textBlack"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="@string/timer_w"
                     android:id="@+id/textW"
@@ -87,6 +104,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textColor="@color/textBlack"
                 android:textAppearance="?android:attr/textAppearanceSmall"
                 android:text=" "
                 android:id="@+id/textView6"/>
@@ -106,6 +124,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/textBlack"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="@string/timer_0"
                         android:id="@+id/timerDL"
@@ -115,6 +134,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/textBlack"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="@string/timer_0"
                         android:id="@+id/timerDR"
@@ -124,6 +144,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/textBlack"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="@string/timer_d"
                     android:id="@+id/textD"
@@ -153,6 +174,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/textBlack"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="@string/timer_0"
                         android:id="@+id/timerHL"
@@ -162,6 +184,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/textBlack"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="@string/timer_0"
                         android:id="@+id/timerHR"
@@ -171,6 +194,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/textBlack"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="@string/timer_h"
                     android:id="@+id/textH"
@@ -200,6 +224,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/textBlack"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="@string/timer_0"
                         android:id="@+id/timerML"
@@ -209,6 +234,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="@color/textBlack"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="@string/timer_0"
                         android:id="@+id/timerMR"
@@ -218,6 +244,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/textBlack"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="@string/timer_m"
                     android:id="@+id/textM"
@@ -246,6 +273,7 @@
 
                     <TextView
                         android:layout_width="wrap_content"
+                        android:textColor="@color/textBlack"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="@string/timer_0"
@@ -255,6 +283,7 @@
 
                     <TextView
                         android:layout_width="wrap_content"
+                        android:textColor="@color/textBlack"
                         android:layout_height="wrap_content"
                         android:textAppearance="?android:attr/textAppearanceLarge"
                         android:text="@string/timer_0"
@@ -265,6 +294,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:textColor="@color/textBlack"
                     android:textAppearance="?android:attr/textAppearanceLarge"
                     android:text="@string/timer_s"
                     android:id="@+id/textS"
@@ -281,6 +311,27 @@
             android:id="@+id/button"
             android:layout_gravity="center_horizontal"
             android:onClick="goTimetable"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <Button
+                android:layout_width="175dp"
+                android:layout_height="wrap_content"
+                android:text="Committee Members"
+                android:id="@+id/button2"/>
+
+            <Button
+                android:layout_width="175dp"
+                android:layout_height="wrap_content"
+                android:text="New Button"
+                android:id="@+id/button3"/>
+
+        </LinearLayout>
+
     </LinearLayout>
 
 </LinearLayout>

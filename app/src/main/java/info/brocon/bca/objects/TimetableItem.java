@@ -2,23 +2,23 @@ package info.brocon.bca.objects;
 
 public class TimetableItem
 {
-    private String name, loc;
-    private int day, time, length;
+    private String name, loc, tags[];
+    private int day, time;
 
-    public TimetableItem(String name, String loc, int day, int time, int length)
+    public TimetableItem(String name, String loc, int day, int time, String  ... tags)
     {
         this.day = day;
         this.name = name;
         this.time = time;
         this.loc = loc;
-        this.length = length;
+        this.tags = tags;
     }
 
     public int getDay() { return day; }
 
     public int getTime() { return time; }
 
-    public int getLength() { return length; }
+    public String[] getTags() { return tags; }
 
     public String getDayAsString()
     {

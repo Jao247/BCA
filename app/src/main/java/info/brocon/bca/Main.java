@@ -1,29 +1,26 @@
 package info.brocon.bca;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.Calendar;
 import java.util.Date;
 
-import info.brocon.bca.activities.Blank;
-import info.brocon.bca.activities.Committee;
 import info.brocon.bca.activities.Timetable;
 
-public class Main extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
+public class Main extends Activity
 {
 
     @Override
@@ -31,8 +28,20 @@ public class Main extends AppCompatActivity implements NavigationView.OnNavigati
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
+
+        ImageView iv = (ImageView) findViewById(R.id.ivHomeHeader);
+        String imgURL = "https://dl.dropboxusercontent.com/u/17672767/Brocon/Images/ic_home_header.png";
+
+        try
+        {
+            Toast.makeText(this, "Acquiring Image", Toast.LENGTH_LONG).show();
+            Picasso.with(this).load(imgURL).placeholder(R.mipmap.ic_home_header).into(iv);
+        } catch (Exception e)
+        {
+            Toast.makeText(this, "Could Not acquire image.", Toast.LENGTH_LONG).show();
+            e.printStackTrace();
+        }
+        this.setTitle("");
 
         startTimer();
         Thread t = new Thread()
@@ -63,14 +72,6 @@ public class Main extends AppCompatActivity implements NavigationView.OnNavigati
         };
 
         t.start();
-
-        DrawerLayout          drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
-        drawer.setDrawerListener(toggle);
-        toggle.syncState();
-
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
     }
 
     public void startTimer()
@@ -139,46 +140,6 @@ public class Main extends AppCompatActivity implements NavigationView.OnNavigati
         {
             super.onBackPressed();
         }
-    }
-
-    @SuppressWarnings ("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item)
-    {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
-
-        if (id == R.id.nav_home)
-        {
-            Toast.makeText(this, R.string.on_home, Toast.LENGTH_LONG).show();
-        } else if (id == R.id.nav_timetable)
-        {
-            Intent i = new Intent(this, Timetable.class);
-            startActivity(i);
-        } else if (id == R.id.nav_guests)
-        {
-            Intent i = new Intent(this, Blank.class);
-            startActivity(i);
-        } else if (id == R.id.nav_blog)
-        {
-            Intent i = new Intent(this, Blank.class);
-            startActivity(i);
-        } else if (id == R.id.nav_committee)
-        {
-            Intent i = new Intent(this, Committee.class);
-            startActivity(i);
-        } else if (id == R.id.nav_facebook)
-        {
-            startActivity(newFacebookIntent(this.getPackageManager(), "https://www.facebook.com/UL-BroCon-210222299054314/"));
-        } else if (id == R.id.nav_about)
-        {
-            Intent i = new Intent(this, Blank.class);
-            startActivity(i);
-        }
-
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        return true;
     }
 
     // Provided from StackOverflow's Jared Rummler (http://stackoverflow.com/users/1048340/jared-rummler)

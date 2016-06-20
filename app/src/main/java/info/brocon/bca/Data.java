@@ -36,12 +36,11 @@ public class Data
                 {
                     nums[0] = Integer.parseInt(temp[2]);
                     nums[1] = Integer.parseInt(temp[3]);
-                    nums[2] = Integer.parseInt(temp[4]);
                 } catch (Exception e)
                 {
                     e.printStackTrace();
                 }
-                data.add(new TimetableItem(temp[0], temp[1], nums[0], nums[1], nums[2]));
+                data.add(new TimetableItem(temp[0], temp[1], nums[0], nums[1]));
             }
         } catch (Exception e)
         {
