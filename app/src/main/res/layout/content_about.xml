@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/a_m_v_margin"
+    android:paddingLeft="@dimen/a_m_h_margin"
+    android:paddingRight="@dimen/a_m_h_margin"
+    android:paddingTop="@dimen/a_m_v_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="info.brocon.bca.activities.About"
+    tools:showIn="@layout/app_bar_about"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:background="@color/colorAccent"
+        android:layout_width="match_parent"
+        android:layout_height="2dp">
+    </LinearLayout>
+
+    <FrameLayout
+        android:orientation="horizontal"
+        android:background="@drawable/header_shadow"
+        android:layout_width="match_parent"
+        android:layout_height="25dp">
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:paddingTop="@dimen/a_c_t_margin"
+        android:paddingBottom="@dimen/a_c_b_margin"
+        android:paddingLeft="@dimen/a_c_h_margin"
+        android:paddingRight="@dimen/a_c_h_margin"
+        android:background="@color/col_bg">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/abo_msg"
+                    android:id="@+id/textView4"
+                    android:layout_gravity="center_horizontal"
+                    android:textAlignment="center"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/pieta_numb"
+                    android:id="@+id/textView5"
+                    android:layout_gravity="center_horizontal"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageButton2"
+                    android:onClick="pietaFB"
+                    android:src="@mipmap/ic_facebook"/>
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageButton3"
+                    android:onClick="pietaSite"
+                    android:src="@mipmap/ic_pieta"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView16"
+            android:layout_gravity="center_horizontal"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/abo_msg_2"
+            android:id="@+id/textView12"
+            android:layout_gravity="center_horizontal"
+            android:textAlignment="center"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Copy Email Link"
+            android:id="@+id/rach_email"
+            android:onClick="getEmail"
+            android:layout_gravity="center_horizontal"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView17"
+            android:layout_gravity="center_horizontal"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/abo_msg_3"
+            android:id="@+id/textView13"
+            android:layout_gravity="center_horizontal"
+            android:textAlignment="center"/>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="YouTube"
+                android:id="@+id/jason_YT"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Facebook"
+                android:id="@+id/jason_fb"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Twitter"
+                android:id="@+id/jason_tw"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/textView18"
+            android:layout_gravity="center_horizontal"/>
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Application Version"
+                android:id="@+id/textView14"
+                android:layout_row="0"
+                android:layout_column="0"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0.1.0"
+                android:id="@+id/textView15"
+                android:layout_row="0"
+                android:layout_column="1"
+                android:layout_gravity="right"/>
+        </GridLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

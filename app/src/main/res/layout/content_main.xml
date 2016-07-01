@@ -11,19 +11,22 @@
     android:paddingTop="@dimen/a_m_v_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="info.brocon.bca.Main"
-    tools:showIn="@layout/app_bar_main"
     android:orientation="vertical">
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="350dp"
+        android:minHeight="350dp"
+        android:maxHeight="800dp"
         android:background="@drawable/home_header">
 
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="350dp"
+            android:layout_height="wrap_content"
+            android:src="@mipmap/ic_home_header"
             android:id="@+id/ivHomeHeader"
+            android:onClick="getWallpaper"
             android:layout_gravity="center_horizontal"/>
     </LinearLayout>
 
@@ -304,13 +307,28 @@
 
         </LinearLayout>
 
-        <Button
-            android:layout_width="match_parent"
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Timetable"
-            android:id="@+id/button"
-            android:layout_gravity="center_horizontal"
-            android:onClick="goTimetable"/>
+            android:layout_gravity="center_horizontal">
+
+            <Button
+                android:layout_width="175dp"
+                android:layout_height="wrap_content"
+                android:text="Timetable"
+                android:id="@+id/button"
+                android:layout_gravity="center_horizontal"
+                android:onClick="goTimetable"/>
+
+            <Button
+                android:layout_width="175dp"
+                android:layout_height="wrap_content"
+                android:text="Map"
+                android:id="@+id/button2"
+                android:onClick="goMap"/>
+
+        </LinearLayout>
 
         <LinearLayout
             android:orientation="horizontal"
@@ -321,14 +339,16 @@
             <Button
                 android:layout_width="175dp"
                 android:layout_height="wrap_content"
-                android:text="Committee Members"
-                android:id="@+id/button2"/>
+                android:text="About"
+                android:id="@+id/button3"
+                android:onClick="goAbout"/>
 
             <Button
                 android:layout_width="175dp"
                 android:layout_height="wrap_content"
-                android:text="New Button"
-                android:id="@+id/button3"/>
+                android:text="Facebook Page"
+                android:id="@+id/button4"
+                android:onClick="goFacebook"/>
 
         </LinearLayout>
 

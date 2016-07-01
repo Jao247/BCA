@@ -26,12 +26,13 @@ public class Data
         try
         {
             reader = new BufferedReader(new InputStreamReader(con.getAssets().open("Timetable.csv")));
-            String mLine, temp[];
+            String mLine, temp[], tags[];
             int nums[] = new int[3];
-            // s name, s location, i day, i time, i length
+            // s name, s location, i day, i time, [s] tags
             while ((mLine = reader.readLine()) != null)
             {
                 temp = mLine.split(",");
+                tags = temp[4].split("/");
                 try
                 {
                     nums[0] = Integer.parseInt(temp[2]);
@@ -40,7 +41,7 @@ public class Data
                 {
                     e.printStackTrace();
                 }
-                data.add(new TimetableItem(temp[0], temp[1], nums[0], nums[1]));
+                data.add(new TimetableItem(temp[0], temp[1], nums[0], nums[1], tags));
             }
         } catch (Exception e)
         {

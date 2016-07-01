@@ -1,24 +1,32 @@
 package info.brocon.bca;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Intent;
 import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.squareup.picasso.Picasso;
-
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.Calendar;
 import java.util.Date;
 
+import info.brocon.bca.activities.About;
+import info.brocon.bca.activities.Floorplans;
 import info.brocon.bca.activities.Timetable;
+import info.brocon.bca.helper.BackgroundHelper;
 
 public class Main extends Activity
 {
@@ -28,20 +36,6 @@ public class Main extends Activity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        ImageView iv = (ImageView) findViewById(R.id.ivHomeHeader);
-        String imgURL = "https://dl.dropboxusercontent.com/u/17672767/Brocon/Images/ic_home_header.png";
-
-        try
-        {
-            Toast.makeText(this, "Acquiring Image", Toast.LENGTH_LONG).show();
-            Picasso.with(this).load(imgURL).placeholder(R.mipmap.ic_home_header).into(iv);
-        } catch (Exception e)
-        {
-            Toast.makeText(this, "Could Not acquire image.", Toast.LENGTH_LONG).show();
-            e.printStackTrace();
-        }
-        this.setTitle("");
 
         startTimer();
         Thread t = new Thread()
@@ -163,5 +157,84 @@ public class Main extends Activity
     {
         Intent i = new Intent(this, Timetable.class);
         startActivity(i);
+    }
+
+    public void goMap(View view)
+    {
+        Intent i = new Intent(this, Floorplans.class);
+        startActivity(i);
+    }
+
+    public void goAbout(View view)
+    {
+        Intent i = new Intent(this, About.class);
+        startActivity(i);
+    }
+
+    private Handler chuckFinishedHandler = new Handler()
+    {
+        @Override
+        public void handleMessage(Message msg)
+        {
+            switch (msg.what)
+            {
+                case 0:
+                    Toast.makeText(Main.this, "Wallpaper set", Toast.LENGTH_SHORT).show();
+                    break;
+                case 1:
+                    Toast.makeText(Main.this, "Uh oh, can't do that right now", Toast.LENGTH_SHORT).show();
+                    break;
+                default:
+                    super.handleMessage(msg);
+            }
+        }
+    };
+
+    public void getWallpaper(View v)
+    {
+        final Dialog           dialog = new Dialog(this);
+        final BackgroundHelper bgHelp = new BackgroundHelper(this, chuckFinishedHandler);
+        dialog.setContentView(R.layout.dialog_wallpaper);
+        dialog.setTitle("Set this as your wallpaper?");
+
+        ImageView image = (ImageView) dialog.findViewById(R.id.bgPreview);
+        try
+        {
+            // get input stream
+            InputStream ims = getAssets().open("bg.png");
+            // load image as Drawable
+            Drawable d = Drawable.createFromStream(ims, null);
+            // set image to ImageView
+            image.setImageDrawable(d);
+        } catch (IOException e)
+        {
+            e.printStackTrace();
+        }
+
+        Button yes = (Button) dialog.findViewById(R.id.yButton);
+        Button no  = (Button) dialog.findViewById(R.id.nButton);
+        yes.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                bgHelp.setResourceAsWallpaper("bg.png");
+                dialog.cancel();
+            }
+        });
+        no.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                dialog.cancel();
+            }
+        });
+        dialog.show();
+    }
+
+    public void goFacebook(View view)
+    {
+        startActivity(newFacebookIntent(this.getPackageManager(), "https://www.facebook.com/UL-BroCon-210222299054314/"));
     }
 }

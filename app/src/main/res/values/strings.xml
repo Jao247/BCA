@@ -10,11 +10,18 @@
 
     <!-- Long Form string messages -->
     <string name="com_msg">Welcome to the Committee page, below this message is a list of the committee members, along with their position and their contact email.</string>
+    <string name="abo_msg">Brocon is a convention organised by the Games Society and the Anime and Manga Society of the University of Limerick. We raise money for Piera House, A suicide prevention and help centre.(the number provided is for Pieta House Limerick)</string>
+    <string name="abo_msg_2">The art presented when the app was opened and for the icon of the app was kindly created by Rachel Fleming for Brocon. She can be countacted via her E-mail for commissions here: RachelF006@yahoo.co.uk</string>
+    <string name="abo_msg_3">The Programming and Design of the application were created for this app and for Brocon by Jason Fahy. Can be contacted here:</string>
 
     <!-- Toast Messages -->
     <string name="on_com">You are already on the Committee page</string>
     <string name="on_home">You are already on the Home page</string>
     <string name="on_timetable">You are already on the Timetable page</string>
+    <string name="on_about">You are already on the About page</string>
+    <string name="on_map">You are already on the Map page</string>
+
+    <string name="pieta_numb">061-484444</string>
 
     <!-- Small String messages -->
     <string name="nav_header_email">public_relations@ulbrocon.com</string>
@@ -40,4 +47,6 @@
     <string name="menu_home">Home</string>
     <string name="menu_map">Map</string>
     <string name="menu_timetable">Timetable</string>
+    <string name="title_activity_about">About</string>
+    <string name="title_activity_floorplans">Floorplans</string>
 </resources>

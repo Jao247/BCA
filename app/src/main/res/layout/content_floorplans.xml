@@ -1,0 +1,49 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    android:background="@color/col_bg"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/a_c_b_margin"
+    android:paddingLeft="@dimen/a_c_h_margin"
+    android:paddingRight="@dimen/a_c_h_margin"
+    android:paddingTop="@dimen/a_c_t_margin">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/gfButton"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="switchToGround"
+            android:text="Ground Floor"/>
+
+        <Button
+            android:id="@+id/ufButton"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="switchToUpper"
+            android:text="Upper Floor"/>
+
+        <Button
+            android:id="@+id/thButton"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="switchToTrade"
+            android:text="Trade Hall"/>
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/map_image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"/>
+</LinearLayout>

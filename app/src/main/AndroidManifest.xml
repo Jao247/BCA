@@ -2,6 +2,9 @@
 <manifest package="info.brocon.bca"
           xmlns:android="http://schemas.android.com/apk/res/android">
 
+    <uses-permission android:name="android.permission.SET_WALLPAPER"/>
+    <uses-permission android:name="android.permission.WRITE_CALENDAR"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,7 +13,9 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".Main"
+            android:configChanges="orientation"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:theme="@android:style/Theme.Wallpaper.NoTitleBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -20,8 +25,10 @@
         </activity>
         <activity
             android:name=".activities.Committee"
+            android:configChanges="orientation"
             android:label="@string/title_activity_committee"
             android:parentActivityName=".Main"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -29,8 +36,10 @@
         </activity>
         <activity
             android:name=".activities.Blank"
+            android:configChanges="orientation"
             android:label="@string/title_activity_blank"
             android:parentActivityName=".Main"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -38,8 +47,30 @@
         </activity>
         <activity
             android:name=".activities.Timetable"
+            android:configChanges="orientation"
             android:label="@string/title_activity_timetable"
+            android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".activities.About"
+            android:configChanges="orientation"
+            android:label="@string/title_activity_about"
+            android:screenOrientation="portrait"
+            android:parentActivityName=".Main"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="info.brocon.bca.Main"/>
+        </activity>
+        <activity
+            android:name=".activities.Floorplans"
+            android:label="@string/title_activity_floorplans"
+            android:parentActivityName=".Main"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="info.brocon.bca.Main"/>
         </activity>
     </application>
 

@@ -11,6 +11,8 @@
     android:paddingTop="@dimen/a_m_v_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="info.brocon.bca.activities.Timetable"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     tools:showIn="@layout/app_bar_timetable"
     android:orientation="vertical">
 
@@ -46,19 +48,27 @@
             android:layout_height="wrap_content">
 
             <EditText
-                android:layout_width="250dp"
+                android:layout_width="215dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/searchField"
                 android:layout_gravity="center_horizontal"
-                android:text="Search"/>
+                android:hint="Search"/>
 
             <Button
                 style="?android:attr/buttonStyleSmall"
-                android:layout_width="120dp"
+                android:layout_width="80dp"
                 android:layout_height="wrap_content"
                 android:text="Search"
+                android:onClick="searchTimetable"
                 android:id="@+id/searchButton"
                 android:textAlignment="center"/>
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:id="@+id/imageButton"
+                android:onClick="refreshList"
+                android:src="@mipmap/ic_refresh"/>
         </LinearLayout>
 
         <ListView

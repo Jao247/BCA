@@ -9,31 +9,22 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.widget.ListAdapter;
-import android.widget.ListView;
-import android.widget.TextView;
+import android.view.View;
 import android.widget.Toast;
 
-import info.brocon.bca.Data;
 import info.brocon.bca.Main;
 import info.brocon.bca.R;
-import info.brocon.bca.adapters.CommAdapter;
 
-public class Committee extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
+public class About extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
 {
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_committee);
+        setContentView(R.layout.activity_about);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        updateListData();
-
-        TextView tv = (TextView) findViewById(R.id.comm_intro_msg);
-        tv.setTextColor(getResources().getColor(R.color.textDark));
 
         DrawerLayout          drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -44,13 +35,9 @@ public class Committee extends AppCompatActivity implements NavigationView.OnNav
         navigationView.setNavigationItemSelectedListener(this);
     }
 
-    @SuppressWarnings ("ALL")
-    private void updateListData()
+    public void getEmail(View v)
     {
-        Data        data = new Data(this);
-        ListAdapter la   = new CommAdapter(this, data.getCommittee());
-        ListView    lv   = (ListView) findViewById(R.id.comm_list);
-        lv.setAdapter(la);
+        Toast.makeText(this, "Fetching Rachel's Email", Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -81,20 +68,21 @@ public class Committee extends AppCompatActivity implements NavigationView.OnNav
         {
             Intent i = new Intent(this, Timetable.class);
             startActivity(i);
-        }else if (id == R.id.nav_committee)
+        } else if (id == R.id.nav_committee)
         {
-            Toast.makeText(this, R.string.on_com, Toast.LENGTH_LONG).show();
+            Intent i = new Intent(this, Committee.class);
+            startActivity(i);
         } else if (id == R.id.nav_facebook)
         {
             startActivity(Main.newFacebookIntent(this.getPackageManager(), "https://www.facebook.com/UL-BroCon-210222299054314/"));
         } else if (id == R.id.nav_about)
         {
-            Intent i = new Intent(this, About.class);
-            startActivity(i);
+            Toast.makeText(this, R.string.on_about, Toast.LENGTH_LONG).show();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
 }

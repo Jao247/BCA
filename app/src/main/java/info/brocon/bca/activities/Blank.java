@@ -61,12 +61,6 @@ public class Blank extends AppCompatActivity implements NavigationView.OnNavigat
         {
             Intent i = new Intent(this, Timetable.class);
             startActivity(i);
-        } else if (id == R.id.nav_guests)
-        {
-
-        } else if (id == R.id.nav_blog)
-        {
-
         } else if (id == R.id.nav_committee)
         {
             Intent i = new Intent(this, Committee.class);
@@ -76,7 +70,8 @@ public class Blank extends AppCompatActivity implements NavigationView.OnNavigat
             startActivity(Main.newFacebookIntent(this.getPackageManager(), "https://www.facebook.com/UL-BroCon-210222299054314/"));
         } else if (id == R.id.nav_about)
         {
-
+            Intent i = new Intent(this, About.class);
+            startActivity(i);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
